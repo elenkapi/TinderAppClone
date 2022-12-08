@@ -111,6 +111,22 @@ final class FirebaseUser: Equatable {
         }
     }
     
+    //MARK: - Login User
+    static func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?, _ isEmailVerified: Bool) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { (authDataResult, error) in
+            if error == nil {
+                if authDataResult!.user.isEmailVerified {
+                    completion(error, true)
+                } else {
+                    print("Email not verified")
+                    completion(error, false)
+                }
+            } else {
+                completion(error,false)
+            }
+        }
+    }
+    
     //MARK: - Save user locally
     private func saveUserLocally() {
         userDefaults.setValue(self.userDictionary as! [String:Any], forKey: kCURRENTUSER)

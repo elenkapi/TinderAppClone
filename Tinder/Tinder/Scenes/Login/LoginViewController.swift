@@ -325,7 +325,15 @@ class LoginViewController: UIViewController {
     
     @objc private func loginTapped() {
         if emailTxtField.text != "" && passwordTxtField.text != "" {
-            
+            FirebaseUser.loginUserWith(email: emailTxtField.text!, password: passwordTxtField.text!) { error, isEmailVerified in
+                if error != nil {
+                    ProgressHUD.showError(error!.localizedDescription)
+                } else if isEmailVerified {
+                    // enter the application
+                } else {
+                    ProgressHUD.showError("Please verify your email address!")
+                }
+            }
         } else {
             ProgressHUD.showError("All Fields are Required!")
         }
