@@ -182,7 +182,7 @@ class RegistrationViewController: UIViewController {
         setUp()
         setUpBackgroundTouch()
         addBtnActions()
-       
+        
     }
     
     // MARK: - Configuration Private Functions
@@ -454,7 +454,7 @@ class RegistrationViewController: UIViewController {
     }
     
     @objc private func handleGenderValueChange(_ sender: UISegmentedControl!) {
-        isMale = sender.selectedSegmentIndex == 0 ? true : false
+        isMale = sender.selectedSegmentIndex == 0
     }
     
     //MARK: - RegisterUser
@@ -464,14 +464,25 @@ class RegistrationViewController: UIViewController {
     
     @objc private func registerTapped() {
         if isTextDataImputed() {
-            // Register User
+            if passwordTxtField.text! == cnfrmPasswordTxtField.text! {
+                registerUser()
+            } else { ProgressHUD.showError("The password confirmation does not match") }
         } else {
-            ProgressHUD.showError(" All Fields are Required!")
+            ProgressHUD.showError("All Fields are Required!")
         }
     }
     
+    //TODO: - add error enum in another swift file for error handling purpouses
     private func registerUser() {
-        
+        ProgressHUD.show()
+        FirebaseUser.registerUserWith(username: usernameTxtField.text!, email: emailTxtField.text!, city: cityTxtField.text!, isMale: isMale, dateOfBirth: Date(), password: passwordTxtField.text!) { error in
+            if error == nil {
+                ProgressHUD.showSuccess("Verification email sent!")
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                ProgressHUD.showError(error!.localizedDescription)
+            }
+        }
     }
     
     //MARK: - Navigation Functions

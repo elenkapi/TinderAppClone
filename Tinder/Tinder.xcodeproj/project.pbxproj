@@ -15,6 +15,7 @@
 		FA887C8B28EB02C200AD30AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA887C8928EB02C200AD30AF /* Main.storyboard */; };
 		FA887C8D28EB02CA00AD30AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA887C8C28EB02CA00AD30AF /* Assets.xcassets */; };
 		FA887C9028EB02CA00AD30AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA887C8E28EB02CA00AD30AF /* LaunchScreen.storyboard */; };
+		FA8D2CE22942195900B3FBA4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D2CE12942195800B3FBA4 /* Constants.swift */; };
 		FA9BEC512938E0DB000D4B59 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BEC502938E0DB000D4B59 /* UIViewController+Extensions.swift */; };
 		FADB95452940AC1100D2CEC8 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB95442940AC1100D2CEC8 /* FirebaseUser.swift */; };
 		FAEC30D6291A86F80023ADFF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC30D5291A86F80023ADFF /* RegistrationViewController.swift */; };
@@ -33,6 +34,7 @@
 		FA887C8C28EB02CA00AD30AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA887C8F28EB02CA00AD30AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA887C9128EB02CA00AD30AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA8D2CE12942195800B3FBA4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA9BEC502938E0DB000D4B59 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		FADB95442940AC1100D2CEC8 /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		FAEC30D5291A86F80023ADFF /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		FA09F317291A3C2B00937CD8 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D2CE12942195800B3FBA4 /* Constants.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				FA887C8428EB02C200AD30AF /* AppDelegate.swift in Sources */,
 				FA9BEC512938E0DB000D4B59 /* UIViewController+Extensions.swift in Sources */,
 				FAEC30D6291A86F80023ADFF /* RegistrationViewController.swift in Sources */,
+				FA8D2CE22942195900B3FBA4 /* Constants.swift in Sources */,
 				FA887C8628EB02C200AD30AF /* SceneDelegate.swift in Sources */,
 				FADB95452940AC1100D2CEC8 /* FirebaseUser.swift in Sources */,
 			);
