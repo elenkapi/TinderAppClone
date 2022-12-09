@@ -311,10 +311,16 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func forgotPasswordTapped() {
-        if emailTxtField.text == "" {
-            ProgressHUD.showError("Please Insert Your Email Address.")
+        if emailTxtField.text != "" {
+            FirebaseUser.resetPasswordFor(email: emailTxtField.text!) { error in
+                if error != nil {
+                    ProgressHUD.showError(error!.localizedDescription)
+                } else {
+                    ProgressHUD.showSuccess("Please check your email!")
+                }
+            }
         } else {
-            //reset password
+            ProgressHUD.showError("Please Insert Your Email Address.")
         }
     }
     
@@ -325,11 +331,13 @@ class LoginViewController: UIViewController {
     
     @objc private func loginTapped() {
         if emailTxtField.text != "" && passwordTxtField.text != "" {
-            FirebaseUser.loginUserWith(email: emailTxtField.text!, password: passwordTxtField.text!) { error, isEmailVerified in
+            ProgressHUD.show()
+            FirebaseUser.loginUserWith(email: emailTxtField.text!, password: passwordTxtField.text!) { [self] error, isEmailVerified in
                 if error != nil {
                     ProgressHUD.showError(error!.localizedDescription)
                 } else if isEmailVerified {
-                    // enter the application
+                    ProgressHUD.dismiss()
+                    goToApp()
                 } else {
                     ProgressHUD.showError("Please verify your email address!")
                 }
@@ -350,5 +358,13 @@ class LoginViewController: UIViewController {
         guard let vc = vc else { return }
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func goToApp() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let mainView = storyboard.instantiateViewController(withIdentifier: "MainView") as? UITabBarController
+        guard let mainView = mainView else { return }
+        mainView.modalPresentationStyle = .fullScreen
+        self.present(mainView, animated: true)
     }
 }

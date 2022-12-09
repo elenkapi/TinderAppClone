@@ -74,8 +74,6 @@ final class FirebaseUser: Equatable {
             kPUSHID as NSCopying
         ])
     }
-    
-    
     //MARK: - Initializers
     init(userID: String, username: String, email: String, city: String, dateOfBirth: Date, isMale: Bool, avatarLink: String = "") {
         self.userID = userID
@@ -95,7 +93,29 @@ final class FirebaseUser: Equatable {
         self.imageLinks = []
     }
     
-    // MARK: - Register User
+    init(dictionary: NSDictionary) {
+        self.userID = dictionary[kUSERID] as? String ?? ""
+        self.username = dictionary[kUSERNAME] as? String ?? ""
+        self.email = dictionary[kEMAIL] as? String ?? ""
+        self.city = dictionary[kCITY] as? String ?? ""
+        self.isMale = dictionary[kISMALE] as? Bool ?? true
+        self.avatarLink = dictionary[kAVATARLINK] as? String ?? ""
+        self.country = dictionary[kCOUNTRY] as? String ?? ""
+        self.proffesion = dictionary[kPROFFESION] as? String ?? ""
+        self.jobTitle = dictionary[kJOBTITLE] as? String ?? ""
+        self.about = dictionary[kABOUT] as? String ?? ""
+        self.height = dictionary[kHEIGHT] as? Double ?? 0.0
+        self.lookingFor = dictionary[kLOOKINGFOR] as? String ?? ""
+        self.likedUsersIDs = dictionary[kLIKEDUSERSIDS] as? [String] ?? []
+        self.imageLinks = dictionary[kIMAGELINKS] as? [String] ?? []
+        
+        if let date = dictionary[kDATEOFBIRTH] as? Timestamp {
+            self.dateOfBirth = date.dateValue()
+        } else {
+            self.dateOfBirth = dictionary[kDATEOFBIRTH] as? Date ?? Date()
+        }
+    }
+    //MARK: - Register User
     static func registerUserWith(username: String, email: String, city: String, isMale: Bool, dateOfBirth: Date, password: String, completion: @escaping (_ error: Error?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (authDataResult, error) in
             completion(error)
@@ -110,12 +130,12 @@ final class FirebaseUser: Equatable {
             }
         }
     }
-    
     //MARK: - Login User
     static func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?, _ isEmailVerified: Bool) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (authDataResult, error) in
             if error == nil {
                 if authDataResult!.user.isEmailVerified {
+                    FirebaseListener.shared.downloadCurrentUserFromFirebase(userID: authDataResult!.user.uid, email: email)
                     completion(error, true)
                 } else {
                     print("Email not verified")
@@ -126,11 +146,27 @@ final class FirebaseUser: Equatable {
             }
         }
     }
-    
-    //MARK: - Save user locally
-    private func saveUserLocally() {
+    //MARK: - Reset Password
+    static func resetPasswordFor(email: String, completion: @escaping (_ error: Error?) -> Void) {
+        Auth.auth().currentUser?.reload(completion: { error in
+            Auth.auth().currentUser?.sendEmailVerification(completion: { error in
+                completion(error)
+            })
+        })
+    }
+
+    //MARK: - Save user locally/firestore
+    func saveUserLocally() {
         userDefaults.setValue(self.userDictionary as! [String:Any], forKey: kCURRENTUSER)
         userDefaults.synchronize()
+    }
+    
+    func saveUserToFireStore() {
+        firebaseReference(.User).document(self.userID).setData(self.userDictionary as! [String:Any]) { error in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+        }
     }
 }
 

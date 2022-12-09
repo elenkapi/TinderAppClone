@@ -27,3 +27,5 @@ public let kREGISTRATIONDATE = "registrationDate"
 public let kPUSHID = "pushID"
 
 public let kCURRENTUSER = "currentUser"
+
+
