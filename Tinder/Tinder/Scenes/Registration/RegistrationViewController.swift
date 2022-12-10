@@ -89,13 +89,20 @@ class RegistrationViewController: UIViewController {
         return genderPicker
     }()
     
-    private lazy var birthdayTxtField: UITextField = {
-        let birthdayTxtField = UITextField()
-        birthdayTxtField.font = UIFont.boldSystemFont(ofSize: 15)
-        birthdayTxtField.attributedPlaceholder = NSAttributedString(string: "Date of Birth", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray2])
-        birthdayTxtField.backgroundColor = .clear
-        view.addSubview(birthdayTxtField)
-        return birthdayTxtField
+    private lazy var dateOfBirthLbl: UILabel = {
+       let dateOfBirthLbl = UILabel()
+        dateOfBirthLbl.text = "Date of Birth"
+        dateOfBirthLbl.textColor = .systemGray2
+        view.addSubview(dateOfBirthLbl)
+        return dateOfBirthLbl
+    }()
+    
+    private lazy var dateOfBirthPicker: UIDatePicker = {
+        let dateOfBirthPicker = UIDatePicker()
+        dateOfBirthPicker.datePickerMode = .date
+        dateOfBirthPicker.tintColor = .white
+        view.addSubview(dateOfBirthPicker)
+        return dateOfBirthPicker
     }()
     
     private lazy var txtFieldBtmLine4: UIView = {
@@ -198,7 +205,8 @@ class RegistrationViewController: UIViewController {
         addEmailField()
         addCityField()
         addGenderPicker()
-        addBirthdayField()
+        addDateOfBirthLbl()
+        addBirthdayPicker()
         addPasswordField()
         addCnfrmPsswrdField()
         addRegisterBtn()
@@ -238,8 +246,8 @@ class RegistrationViewController: UIViewController {
         addTxtFieldBtmLine3()
     }
     
-    private func addBirthdayField() {
-        addBirthdayTxtField()
+    private func addBirthdayPicker() {
+        addDateOfBirthPicker()
         addTxtFieldBtmLine4()
     }
     
@@ -351,13 +359,24 @@ class RegistrationViewController: UIViewController {
         NSLayoutConstraint.activate([top, left, right, height])
     }
     
-    private func addBirthdayTxtField() {
-        birthdayTxtField.translatesAutoresizingMaskIntoConstraints = false
+    private func addDateOfBirthLbl() {
+        dateOfBirthLbl.translatesAutoresizingMaskIntoConstraints = false
         
-        let top = NSLayoutConstraint(item: birthdayTxtField, attribute: .top, relatedBy: .equal, toItem: genderPicker, attribute: .top, multiplier: 1, constant: 50)
-        let left = NSLayoutConstraint(item: birthdayTxtField, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 16)
-        let right = NSLayoutConstraint(item: birthdayTxtField, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1, constant: -16)
-        let height = NSLayoutConstraint(item: birthdayTxtField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40)
+        let top = NSLayoutConstraint(item: dateOfBirthLbl, attribute: .top, relatedBy: .equal, toItem: genderPicker, attribute: .top, multiplier: 1, constant: 50)
+        let left = NSLayoutConstraint(item: dateOfBirthLbl, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 16)
+//        let right = NSLayoutConstraint(item: dateOfBirthLbl, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1, constant: -16)
+        let height = NSLayoutConstraint(item: dateOfBirthLbl, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40)
+        
+        NSLayoutConstraint.activate([top, left, height])
+    }
+    
+    private func addDateOfBirthPicker() {
+        dateOfBirthPicker.translatesAutoresizingMaskIntoConstraints = false
+        
+        let top = NSLayoutConstraint(item: dateOfBirthPicker, attribute: .top, relatedBy: .equal, toItem: genderPicker, attribute: .top, multiplier: 1, constant: 50)
+        let left = NSLayoutConstraint(item: dateOfBirthPicker, attribute: .left, relatedBy: .equal, toItem: dateOfBirthLbl, attribute: .right, multiplier: 1, constant: 5)
+        let right = NSLayoutConstraint(item: dateOfBirthPicker, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1, constant: -16)
+        let height = NSLayoutConstraint(item: dateOfBirthPicker, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40)
         
         NSLayoutConstraint.activate([top, left, right, height])
     }
@@ -365,7 +384,7 @@ class RegistrationViewController: UIViewController {
     private func addTxtFieldBtmLine4() {
         txtFieldBtmLine4.translatesAutoresizingMaskIntoConstraints = false
         
-        let top = NSLayoutConstraint(item: txtFieldBtmLine4, attribute: .top, relatedBy: .equal, toItem: birthdayTxtField, attribute: .bottom, multiplier: 1, constant: 0)
+        let top = NSLayoutConstraint(item: txtFieldBtmLine4, attribute: .top, relatedBy: .equal, toItem: dateOfBirthPicker, attribute: .bottom, multiplier: 1, constant: 0)
         let left = NSLayoutConstraint(item: txtFieldBtmLine4, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 16)
         let right = NSLayoutConstraint(item: txtFieldBtmLine4, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1, constant: -16)
         let height = NSLayoutConstraint(item: txtFieldBtmLine4, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 2)
@@ -376,7 +395,7 @@ class RegistrationViewController: UIViewController {
     private func addPasswordTxtField() {
         passwordTxtField.translatesAutoresizingMaskIntoConstraints = false
         
-        let top = NSLayoutConstraint(item: passwordTxtField, attribute: .top, relatedBy: .equal, toItem: birthdayTxtField, attribute: .top, multiplier: 1, constant: 50)
+        let top = NSLayoutConstraint(item: passwordTxtField, attribute: .top, relatedBy: .equal, toItem: dateOfBirthPicker, attribute: .top, multiplier: 1, constant: 50)
         let left = NSLayoutConstraint(item: passwordTxtField, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 16)
         let right = NSLayoutConstraint(item: passwordTxtField, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1, constant: -16)
         let height = NSLayoutConstraint(item: passwordTxtField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40)
@@ -475,7 +494,7 @@ class RegistrationViewController: UIViewController {
     //TODO: - add error enum in another swift file for error handling purpouses
     private func registerUser() {
         ProgressHUD.show()
-        FirebaseUser.registerUserWith(username: usernameTxtField.text!, email: emailTxtField.text!, city: cityTxtField.text!, isMale: isMale, dateOfBirth: Date(), password: passwordTxtField.text!) { error in
+        FirebaseUser.registerUserWith(username: usernameTxtField.text!, email: emailTxtField.text!, city: cityTxtField.text!, isMale: isMale, dateOfBirth: dateOfBirthPicker.date, password: passwordTxtField.text!) { error in
             if error == nil {
                 ProgressHUD.showSuccess("Verification email sent!")
                 self.navigationController?.popViewController(animated: true)
@@ -496,6 +515,6 @@ class RegistrationViewController: UIViewController {
     
     //MARK: - Helpers
     private func isTextDataImputed() -> Bool {
-        return usernameTxtField.text != "" && emailTxtField.text != "" && cityTxtField.text != "" && birthdayTxtField.text != "" && passwordTxtField.text != "" && cnfrmPasswordTxtField.text != ""
+        return usernameTxtField.text != "" && emailTxtField.text != "" && cityTxtField.text != "" && passwordTxtField.text != "" && cnfrmPasswordTxtField.text != ""
     }
 }
