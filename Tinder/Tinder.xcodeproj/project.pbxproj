@@ -10,10 +10,19 @@
 		2CAD1EA415ED3EBDC6FF827A /* Pods_Tinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D113E81CE5A0BE56B9F759 /* Pods_Tinder.framework */; };
 		FA09F314291A375700937CD8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09F313291A375700937CD8 /* LoginViewController.swift */; };
 		FA1321A528F54E95002DD83D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA1321A428F54E95002DD83D /* GoogleService-Info.plist */; };
+		FA1335C32949F92200B08A73 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1335C22949F92200B08A73 /* ProfileViewController.swift */; };
+		FA1335C62949FA5500B08A73 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1335C42949FA5500B08A73 /* ProfileCell.swift */; };
+		FA1335C72949FA5500B08A73 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1335C52949FA5500B08A73 /* ProfileCell.xib */; };
+		FA1335C9294A007F00B08A73 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1335C8294A007F00B08A73 /* UIView+Extensions.swift */; };
+		FA1335CD294A062A00B08A73 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1335CB294A062A00B08A73 /* LabelCell.swift */; };
+		FA1335CE294A062A00B08A73 /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1335CC294A062A00B08A73 /* LabelCell.xib */; };
+		FA1335D2294A06BC00B08A73 /* AboutMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1335D0294A06BC00B08A73 /* AboutMeCell.swift */; };
+		FA1335D3294A06BC00B08A73 /* AboutMeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1335D1294A06BC00B08A73 /* AboutMeCell.xib */; };
+		FA1335D7294A0FD800B08A73 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1335D5294A0FD800B08A73 /* TextFieldCell.swift */; };
+		FA1335D8294A0FD800B08A73 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1335D6294A0FD800B08A73 /* TextFieldCell.xib */; };
 		FA1639432943322B00FCED7D /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1639422943322B00FCED7D /* GlobalFunctions.swift */; };
 		FA1639462943378700FCED7D /* FCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1639452943378600FCED7D /* FCollectionReference.swift */; };
 		FA1639482943387000FCED7D /* FirebaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1639472943387000FCED7D /* FirebaseListener.swift */; };
-		FA16394B2943771D00FCED7D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16394A2943771D00FCED7D /* ProfileViewController.swift */; };
 		FA887C8428EB02C200AD30AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA887C8328EB02C200AD30AF /* AppDelegate.swift */; };
 		FA887C8628EB02C200AD30AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA887C8528EB02C200AD30AF /* SceneDelegate.swift */; };
 		FA887C8B28EB02C200AD30AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA887C8928EB02C200AD30AF /* Main.storyboard */; };
@@ -31,10 +40,19 @@
 		F02B255D1A9F3F983D36618B /* Pods-Tinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tinder.debug.xcconfig"; path = "Target Support Files/Pods-Tinder/Pods-Tinder.debug.xcconfig"; sourceTree = "<group>"; };
 		FA09F313291A375700937CD8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA1321A428F54E95002DD83D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA1335C22949F92200B08A73 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FA1335C42949FA5500B08A73 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		FA1335C52949FA5500B08A73 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		FA1335C8294A007F00B08A73 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		FA1335CB294A062A00B08A73 /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
+		FA1335CC294A062A00B08A73 /* LabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
+		FA1335D0294A06BC00B08A73 /* AboutMeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeCell.swift; sourceTree = "<group>"; };
+		FA1335D1294A06BC00B08A73 /* AboutMeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutMeCell.xib; sourceTree = "<group>"; };
+		FA1335D5294A0FD800B08A73 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		FA1335D6294A0FD800B08A73 /* TextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		FA1639422943322B00FCED7D /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		FA1639452943378600FCED7D /* FCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCollectionReference.swift; sourceTree = "<group>"; };
 		FA1639472943387000FCED7D /* FirebaseListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseListener.swift; sourceTree = "<group>"; };
-		FA16394A2943771D00FCED7D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FA887C8028EB02C200AD30AF /* Tinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA887C8328EB02C200AD30AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA887C8528EB02C200AD30AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				FA9BEC502938E0DB000D4B59 /* UIViewController+Extensions.swift */,
+				FA1335C8294A007F00B08A73 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,6 +190,42 @@
 			path = NetworkServices;
 			sourceTree = "<group>";
 		};
+		FA1335C12949F6F200B08A73 /* ProfileViewCustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				FA1335C42949FA5500B08A73 /* ProfileCell.swift */,
+				FA1335C52949FA5500B08A73 /* ProfileCell.xib */,
+			);
+			path = ProfileViewCustomCells;
+			sourceTree = "<group>";
+		};
+		FA1335CA294A060D00B08A73 /* LabelCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA1335CB294A062A00B08A73 /* LabelCell.swift */,
+				FA1335CC294A062A00B08A73 /* LabelCell.xib */,
+			);
+			path = LabelCell;
+			sourceTree = "<group>";
+		};
+		FA1335CF294A06A000B08A73 /* AboutMeCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA1335D0294A06BC00B08A73 /* AboutMeCell.swift */,
+				FA1335D1294A06BC00B08A73 /* AboutMeCell.xib */,
+			);
+			path = AboutMeCell;
+			sourceTree = "<group>";
+		};
+		FA1335D4294A0F9E00B08A73 /* TextFieldCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA1335D5294A0FD800B08A73 /* TextFieldCell.swift */,
+				FA1335D6294A0FD800B08A73 /* TextFieldCell.xib */,
+			);
+			path = TextFieldCell;
+			sourceTree = "<group>";
+		};
 		FA163944294336F100FCED7D /* FirebaseHelpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,7 +238,11 @@
 		FA163949294376F500FCED7D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				FA16394A2943771D00FCED7D /* ProfileViewController.swift */,
+				FA1335D4294A0F9E00B08A73 /* TextFieldCell */,
+				FA1335CF294A06A000B08A73 /* AboutMeCell */,
+				FA1335CA294A060D00B08A73 /* LabelCell */,
+				FA1335C12949F6F200B08A73 /* ProfileViewCustomCells */,
+				FA1335C22949F92200B08A73 /* ProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -282,10 +341,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1335CE294A062A00B08A73 /* LabelCell.xib in Resources */,
 				FA887C9028EB02CA00AD30AF /* LaunchScreen.storyboard in Resources */,
 				FA887C8D28EB02CA00AD30AF /* Assets.xcassets in Resources */,
+				FA1335D8294A0FD800B08A73 /* TextFieldCell.xib in Resources */,
+				FA1335D3294A06BC00B08A73 /* AboutMeCell.xib in Resources */,
 				FA887C8B28EB02C200AD30AF /* Main.storyboard in Resources */,
 				FA1321A528F54E95002DD83D /* GoogleService-Info.plist in Resources */,
+				FA1335C72949FA5500B08A73 /* ProfileCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,13 +403,18 @@
 			files = (
 				FA1639432943322B00FCED7D /* GlobalFunctions.swift in Sources */,
 				FA09F314291A375700937CD8 /* LoginViewController.swift in Sources */,
+				FA1335CD294A062A00B08A73 /* LabelCell.swift in Sources */,
 				FA887C8428EB02C200AD30AF /* AppDelegate.swift in Sources */,
+				FA1335D2294A06BC00B08A73 /* AboutMeCell.swift in Sources */,
 				FA9BEC512938E0DB000D4B59 /* UIViewController+Extensions.swift in Sources */,
 				FAEC30D6291A86F80023ADFF /* RegistrationViewController.swift in Sources */,
+				FA1335D7294A0FD800B08A73 /* TextFieldCell.swift in Sources */,
+				FA1335C9294A007F00B08A73 /* UIView+Extensions.swift in Sources */,
 				FA8D2CE22942195900B3FBA4 /* Constants.swift in Sources */,
-				FA16394B2943771D00FCED7D /* ProfileViewController.swift in Sources */,
+				FA1335C32949F92200B08A73 /* ProfileViewController.swift in Sources */,
 				FA1639482943387000FCED7D /* FirebaseListener.swift in Sources */,
 				FA1639462943378700FCED7D /* FCollectionReference.swift in Sources */,
+				FA1335C62949FA5500B08A73 /* ProfileCell.swift in Sources */,
 				FA887C8628EB02C200AD30AF /* SceneDelegate.swift in Sources */,
 				FADB95452940AC1100D2CEC8 /* FirebaseUser.swift in Sources */,
 			);
