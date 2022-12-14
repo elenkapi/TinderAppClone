@@ -56,14 +56,14 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0: return 420
+        case 0: return HeightForRow.sec0.rawValue
         case 1:
             if indexPath.row == 0 {
-                return 60
+                return HeightForRow.forTitle$TxtField.rawValue
             } else {
-                return 150
+                return HeightForRow.sec1_1.rawValue
             }
-        case 2...3: return 60
+        case 2...3: return HeightForRow.forTitle$TxtField.rawValue
         default: return 10
         }
     }
@@ -77,15 +77,15 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 1
+            return NumberOfRowsInSection.sec0.rawValue
         case 1:
-            return 2
+            return NumberOfRowsInSection.sec1.rawValue
         case 2:
-            return 3
+            return NumberOfRowsInSection.sec2.rawValue
         case 3:
-            return 6
+            return NumberOfRowsInSection.sec3.rawValue
         default:
-            return 0
+            return NumberOfRowsInSection.secDefault.rawValue
         }
     }
     
@@ -97,7 +97,7 @@ extension ProfileViewController: UITableViewDataSource {
             switch indexPath.row {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: LabelCell.identifier, for: indexPath) as? LabelCell else { return UITableViewCell() }
-                cell.titleLbl.text = "About Me"
+                cell.titleLbl.text = SectionTitle.aboutMe.rawValue
                 return cell
             case 1:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutMeCell.identifier, for: indexPath) as? AboutMeCell else { return UITableViewCell() }
@@ -108,15 +108,15 @@ extension ProfileViewController: UITableViewDataSource {
             switch indexPath.row {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: LabelCell.identifier, for: indexPath) as? LabelCell else { return UITableViewCell() }
-                cell.titleLbl.text = "My Work & Education"
+                cell.titleLbl.text = SectionTitle.workEdu.rawValue
                 return cell
             case 1:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.identifier, for: indexPath) as? TextFieldCell else { return UITableViewCell() }
-                cell.txtField.placeholder = "Add Job"
+                cell.txtField.placeholder = Placeholder.addJob.rawValue
                 return cell
             case 2:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.identifier, for: indexPath) as? TextFieldCell else { return UITableViewCell() }
-                cell.txtField.placeholder = "Add Education"
+                cell.txtField.placeholder = Placeholder.addEdu.rawValue
                 return cell
             default: return UITableViewCell()
             }
@@ -124,22 +124,22 @@ extension ProfileViewController: UITableViewDataSource {
             switch indexPath.row {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: LabelCell.identifier, for: indexPath) as? LabelCell else { return UITableViewCell() }
-                cell.titleLbl.text = "My Basic Info"
+                cell.titleLbl.text = SectionTitle.basicInfo.rawValue
                 return cell
             case 1...5:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.identifier, for: indexPath) as? TextFieldCell else { return UITableViewCell() }
                 switch indexPath.row {
                 case 1:
-                    cell.txtField.placeholder = "Gender"
+                    cell.txtField.placeholder = Placeholder.gender.rawValue
                 case 2:
-                    cell.txtField.placeholder = "City"
+                    cell.txtField.placeholder = Placeholder.city.rawValue
                 case 3:
-                    cell.txtField.placeholder = "Country"
+                    cell.txtField.placeholder = Placeholder.country.rawValue
                 case 4:
-                    cell.txtField.placeholder = "Height"
+                    cell.txtField.placeholder = Placeholder.height.rawValue
                 case 5:
-                    cell.txtField.placeholder = "Looking for"
-                default: print("")
+                    cell.txtField.placeholder = Placeholder.lookingFor.rawValue
+                default: break
                 }
                 return cell
             default: return UITableViewCell()
