@@ -8,22 +8,17 @@
 import UIKit
 
 class AboutMeCell: UITableViewCell {
-
+    //MARK: - IBOutlets
     @IBOutlet weak var txtViewContainer: UIView!
     @IBOutlet weak var txtView: UITextView!
     
+    //MARK: - Class Variables
     private var editingMode = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setUp()
         editBtnTapped()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     //MARK: - Setup Functions
@@ -34,7 +29,7 @@ class AboutMeCell: UITableViewCell {
     
     //MARK: - TextView Editing Mode
     private func editBtnTapped() {
-        NotificationCenter.default.addObserver(self, selector: #selector(enableEditing), name: Notification.Name("Tinder.Notification.EditingMode"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(enableEditing), name: Notification.Name(NotificationName._edit.rawValue), object: nil)
     }
     
     @objc private func enableEditing() {

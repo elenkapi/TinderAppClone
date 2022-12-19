@@ -28,7 +28,7 @@ public let kPUSHID = "pushID"
 
 public let kCURRENTUSER = "currentUser"
 
-//MARK: - Profile
+//MARK: - Profile TableView(Cells)
 enum SectionTitle: String {
     case aboutMe = "About Me"
     case workEdu = "My Work & Education"
@@ -58,4 +58,30 @@ enum HeightForRow: CGFloat {
     case forTitle$TxtField = 60
     case sec1_1 = 150
     case secDefault = 50
+}
+
+//MARK: - Notification Center
+enum NotificationName: String {
+    case _settings = "Tinder.Notification.SettingsTapped"
+    case _camera = "Tinder.Notification.CameraTapped"
+    case _edit = "Tinder.Notification.EditTapped"
+}
+
+enum AlertTitle: String {
+    case _settings = "Edit Account"
+    case _camera = "Upload Picture"
+}
+
+enum AlertMessage: String {
+case _settings = "You are about to edit sensitive information about your account"
+case _camera = "You can change your avatar or upload more pictures"
+}
+
+enum AlertOption: String {
+    case changeEmail = "Change Email"
+    case changeName = "Change Name"
+    case logOut = "Log Out"
+    case changeAvatar = "Change Avatar"
+    case uploadPictures = "Upload Pictures"
+    case cancel = "Cancel"
 }

@@ -23,6 +23,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setUp()
         setUpTableView()
+        settingsNotification()
+        cameraOptionsNotification()
         editableModeNotification()
     }
     
@@ -57,9 +59,55 @@ class ProfileViewController: UIViewController {
         
     }
     
+    //MARK: - AlertControllers - Settings Options
+    private func settingsNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showSettingsOptions), name: Notification.Name(NotificationName._settings.rawValue), object: nil)
+    }
+    
+    @objc private func showSettingsOptions() {
+        let alertController = UIAlertController(title: AlertTitle._settings.rawValue, message: AlertMessage._settings.rawValue, preferredStyle: .actionSheet)
+        
+        alertController.addAction(UIAlertAction(title: AlertOption.changeEmail.rawValue, style: .default, handler: { alertAction in
+            
+        }))
+        
+        alertController.addAction(UIAlertAction(title: AlertOption.changeName.rawValue, style: .default, handler: { alertAction in
+            
+        }))
+        
+        alertController.addAction(UIAlertAction(title: AlertOption.logOut.rawValue, style: .destructive, handler: { alertAction in
+            
+        }))
+        
+        alertController.addAction(UIAlertAction(title: AlertOption.cancel.rawValue, style: .cancel))
+        
+        self.present(alertController, animated: true)
+    }
+    
+    //MARK: - AlertControllers - Camera Options
+    private func cameraOptionsNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showCameraOptions), name: Notification.Name(NotificationName._camera.rawValue), object: nil)
+    }
+    
+    @objc private func showCameraOptions() {
+        let alertController = UIAlertController(title: AlertTitle._camera.rawValue, message: AlertMessage._camera.rawValue, preferredStyle: .actionSheet)
+        
+        alertController.addAction(UIAlertAction(title: AlertOption.changeAvatar.rawValue, style: .default, handler: { alertAction in
+            
+        }))
+        
+        alertController.addAction(UIAlertAction(title: AlertOption.uploadPictures.rawValue, style: .default, handler: { alertAction in
+            
+        }))
+        
+        alertController.addAction(UIAlertAction(title: AlertOption.cancel.rawValue, style: .cancel))
+        
+        self.present(alertController, animated: true)
+    }
+    
     //MARK: - Save user(edited) data
     private func editableModeNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(editBtnTapped), name: Notification.Name("Tinder.Notification.EditingMode"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(editBtnTapped), name: Notification.Name(NotificationName._edit.rawValue), object: nil)
     }
     
     @objc private func editBtnTapped() {
