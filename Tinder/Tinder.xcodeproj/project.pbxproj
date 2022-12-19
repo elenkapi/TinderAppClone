@@ -190,13 +190,15 @@
 			path = NetworkServices;
 			sourceTree = "<group>";
 		};
-		FA1335C12949F6F200B08A73 /* ProfileViewCustomCells */ = {
+		FA1335C12949F6F200B08A73 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				FA1335C42949FA5500B08A73 /* ProfileCell.swift */,
-				FA1335C52949FA5500B08A73 /* ProfileCell.xib */,
+				FA1335D4294A0F9E00B08A73 /* TextFieldCell */,
+				FA1335CF294A06A000B08A73 /* AboutMeCell */,
+				FA1335CA294A060D00B08A73 /* LabelCell */,
+				FA8DE0AD294A2706001184CA /* ProfileCell */,
 			);
-			path = ProfileViewCustomCells;
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		FA1335CA294A060D00B08A73 /* LabelCell */ = {
@@ -238,10 +240,7 @@
 		FA163949294376F500FCED7D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				FA1335D4294A0F9E00B08A73 /* TextFieldCell */,
-				FA1335CF294A06A000B08A73 /* AboutMeCell */,
-				FA1335CA294A060D00B08A73 /* LabelCell */,
-				FA1335C12949F6F200B08A73 /* ProfileViewCustomCells */,
+				FA1335C12949F6F200B08A73 /* CustomCells */,
 				FA1335C22949F92200B08A73 /* ProfileViewController.swift */,
 			);
 			path = Profile;
@@ -279,6 +278,15 @@
 				FA09F30D291A365C00937CD8 /* Info */,
 			);
 			path = Tinder;
+			sourceTree = "<group>";
+		};
+		FA8DE0AD294A2706001184CA /* ProfileCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA1335C42949FA5500B08A73 /* ProfileCell.swift */,
+				FA1335C52949FA5500B08A73 /* ProfileCell.xib */,
+			);
+			path = ProfileCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

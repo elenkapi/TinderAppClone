@@ -29,7 +29,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JTa-ch-N41" firstAttribute="leading" secondItem="xj6-Kp-WCp" secondAttribute="leading" constant="8" id="BlB-oP-P2L"/>
                             <constraint firstAttribute="trailing" secondItem="JTa-ch-N41" secondAttribute="trailing" constant="8" id="XuO-nM-UVU"/>
@@ -38,7 +38,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.59891599419999997" green="0.30301484470000001" blue="0.41249084470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="xj6-Kp-WCp" secondAttribute="trailing" constant="10" id="Hy5-af-TsY"/>
                     <constraint firstItem="xj6-Kp-WCp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MzW-NB-nkZ"/>

@@ -23,7 +23,7 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
-                <color key="backgroundColor" red="0.59891599419999997" green="0.30301484470000001" blue="0.41249084470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="2Pj-ii-K5a" secondAttribute="bottom" constant="5" id="3i9-ed-A06"/>
                     <constraint firstItem="2Pj-ii-K5a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="BEd-Os-g1x"/>

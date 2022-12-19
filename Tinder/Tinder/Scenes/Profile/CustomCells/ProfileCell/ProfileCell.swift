@@ -16,7 +16,7 @@ class ProfileCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setUpBackground()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,7 +32,22 @@ class ProfileCell: UITableViewCell {
     @IBAction func cameraTapped(_ sender: UIButton) {
     }
     @IBAction func editTapped(_ sender: UIButton) {
+        postEditingModeNotification()
     }
     
+    //MARK: - Setup
+    private func setUpBackground() {
+        profileCellView.clipsToBounds = true
+        profileCellView.layer.cornerRadius = 85
+        profileCellView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+    }
     
+    //MARK: - Settings Button Helper Funcs
+    
+    //MARK: - Camera Button Helper Funcs
+    
+    //MARK: - Edit Button Helper Funcs
+     func postEditingModeNotification() {
+        NotificationCenter.default.post(name: Notification.Name("Tinder.Notification.EditingMode"), object: nil)
+    }
 }

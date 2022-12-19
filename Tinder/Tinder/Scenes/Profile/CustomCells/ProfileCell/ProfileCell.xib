@@ -43,7 +43,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJg-9C-LUQ">
                                 <rect key="frame" x="145.5" y="308" width="84" height="122"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="camera"/>
+                                <buttonConfiguration key="configuration" style="plain" image="camera" imagePlacement="bottom" title="."/>
                                 <connections>
                                     <action selector="cameraTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wlj-6q-2V3"/>
                                 </connections>
@@ -51,7 +51,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPl-3t-BsJ">
                                 <rect key="frame" x="21.5" y="308" width="104" height="122"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="settings"/>
+                                <buttonConfiguration key="configuration" style="plain" image="settings" imagePlacement="bottom" title="."/>
                                 <connections>
                                     <action selector="settingsTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YNK-4E-Vuf"/>
                                 </connections>
@@ -59,7 +59,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxl-qn-ehe">
                                 <rect key="frame" x="249.5" y="308" width="104" height="122"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="edit"/>
+                                <buttonConfiguration key="configuration" style="plain" image="edit" imagePlacement="bottom" title="."/>
                                 <connections>
                                     <action selector="editTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="XPg-Lb-YcH"/>
                                 </connections>
@@ -89,7 +89,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Xoe-bg-xeC" secondAttribute="trailing" id="1So-ko-X7u"/>
                     <constraint firstItem="Xoe-bg-xeC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JdZ-sj-NrV"/>

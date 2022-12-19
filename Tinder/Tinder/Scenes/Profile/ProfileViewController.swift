@@ -15,11 +15,15 @@ class ProfileViewController: UIViewController {
         return tableView
     }()
     
+    //MARK: - Class variables
+    private var editingMode = false
+    
     //MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
         setUpTableView()
+        editableModeNotification()
     }
     
     // MARK: - Configuration Private Functions
@@ -35,8 +39,9 @@ class ProfileViewController: UIViewController {
         tableView.register(LabelCell.nibFile, forCellReuseIdentifier: LabelCell.identifier)
         tableView.register(TextFieldCell.nibFile, forCellReuseIdentifier: TextFieldCell.identifier)
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .yellow
+        tableView.backgroundColor = .lightGray
     }
     
     //MARK: - Adding Views
@@ -51,8 +56,28 @@ class ProfileViewController: UIViewController {
         NSLayoutConstraint.activate([top, left, right, bottom])
         
     }
+    
+    //MARK: - Save user(edited) data
+    private func editableModeNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(editBtnTapped), name: Notification.Name("Tinder.Notification.EditingMode"), object: nil)
+    }
+    
+    @objc private func editBtnTapped() {
+        editingMode.toggle()
+        showSaveButton()
+    }
+    
+    private func showSaveButton() {
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveUserData))
+        self.navigationItem.rightBarButtonItem = editingMode ? saveButton : nil
+    }
+    
+    @objc private func saveUserData() {
+        
+    }
 }
 
+//MARK: - Extensions
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
