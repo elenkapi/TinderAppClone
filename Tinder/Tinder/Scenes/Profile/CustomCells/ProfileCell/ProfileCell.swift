@@ -44,6 +44,11 @@ class ProfileCell: UITableViewCell {
         profileCellView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
     
+    func configCell(_ username: String, _ age: Int, _ city: String, _ country: String) {
+        self.nameAgeLbl.text = "\(username), \(age)"
+        self.cityCountryLbl.text = "\(city), \(country)"
+    }
+    
     //MARK: - Settings Button Helper Funcs
     private func postSettingsTappedNotification() {
         NotificationCenter.default.post(name: Notification.Name(NotificationName._settings.rawValue), object: nil)

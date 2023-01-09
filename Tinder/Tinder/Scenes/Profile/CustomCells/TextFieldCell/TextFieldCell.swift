@@ -18,6 +18,7 @@ class TextFieldCell: UITableViewCell {
         super.awakeFromNib()
         setUp()
         editBtnTapped()
+        saveBtnTapped()
     }
     
     //MARK: - Setup Functions
@@ -25,9 +26,17 @@ class TextFieldCell: UITableViewCell {
         txtField.isUserInteractionEnabled = false
     }
     
+    func configCell(_ userInfo: String) {
+        self.txtField.text = userInfo
+    }
+    
     //MARK: - TextField Editing Mode
     private func editBtnTapped() {
         NotificationCenter.default.addObserver(self, selector: #selector(enableEditing), name: Notification.Name(NotificationName._edit.rawValue), object: nil)
+    }
+    
+    private func saveBtnTapped() {
+        NotificationCenter.default.addObserver(self, selector: #selector(enableEditing), name: Notification.Name(NotificationName._save.rawValue), object: nil)
     }
     
     @objc private func enableEditing() {

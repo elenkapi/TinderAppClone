@@ -16,7 +16,9 @@ class ProfileViewController: UIViewController {
     }()
     
     //MARK: - Class variables
+    private let currentUser = FirebaseUser.currentUser()
     private var editingMode = false
+    private var numberOfSections = ProfileSection.allCases.count
     
     //MARK: - View Life Cycles
     override func viewDidLoad() {
@@ -121,7 +123,20 @@ class ProfileViewController: UIViewController {
     }
     
     @objc private func saveUserData() {
-        
+        postSaveUserInfoNotif()
+        saveUser(user: currentUser!)
+        editingMode = false
+        showSaveButton()
+    }
+    
+    private func saveUser(user: FirebaseUser) {
+        user.saveUserLocally()
+        user.saveUserToFireStore()
+    }
+    
+    //MARK: - Notification Center functions
+    private func postSaveUserInfoNotif() {
+        NotificationCenter.default.post(name: Notification.Name(NotificationName._save.rawValue), object: nil)
     }
 }
 
@@ -129,14 +144,15 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0: return HeightForRow.sec0.rawValue
-        case 1:
+        case ProfileSection.firstSection.rawValue:
+            return HeightForRow.firstSection.rawValue
+        case ProfileSection.secondSection.rawValue:
             if indexPath.row == 0 {
                 return HeightForRow.forTitle$TxtField.rawValue
             } else {
-                return HeightForRow.sec1_1.rawValue
+                return HeightForRow.txtView.rawValue
             }
-        case 2...3: return HeightForRow.forTitle$TxtField.rawValue
+        case ProfileSection.thirdSection.rawValue,ProfileSection.forthSection.rawValue: return HeightForRow.forTitle$TxtField.rawValue
         default: return 10
         }
     }
@@ -144,73 +160,95 @@ extension ProfileViewController: UITableViewDelegate {
 
 extension ProfileViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        4
+        numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
-            return NumberOfRowsInSection.sec0.rawValue
-        case 1:
+        case ProfileSection.firstSection.rawValue:
             return NumberOfRowsInSection.sec1.rawValue
-        case 2:
+        case ProfileSection.secondSection.rawValue:
             return NumberOfRowsInSection.sec2.rawValue
-        case 3:
+        case ProfileSection.thirdSection.rawValue:
             return NumberOfRowsInSection.sec3.rawValue
+        case ProfileSection.forthSection.rawValue:
+            return NumberOfRowsInSection.sec4.rawValue
         default:
             return NumberOfRowsInSection.secDefault.rawValue
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        if indexPath.section == ProfileSection.firstSection.rawValue {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileCell.identifier, for: indexPath) as? ProfileCell else { return UITableViewCell() }
+            if currentUser != nil {
+                let userAge = currentUser!.dateOfBirth.calculatedAge(for: Date())
+                cell.configCell(currentUser!.username, userAge, currentUser!.city, currentUser!.country)
+            }
+    //TODO: - set avatar picture.
             return cell
-        } else if indexPath.section == 1  {
+        } else if indexPath.section == ProfileSection.secondSection.rawValue  {
             switch indexPath.row {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: LabelCell.identifier, for: indexPath) as? LabelCell else { return UITableViewCell() }
-                cell.titleLbl.text = SectionTitle.aboutMe.rawValue
+                cell.configCell(SectionTitle.aboutMe.rawValue)
                 return cell
             case 1:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutMeCell.identifier, for: indexPath) as? AboutMeCell else { return UITableViewCell() }
+                if currentUser != nil {
+                    cell.configCell(currentUser!.about)
+                }
                 return cell
             default: return UITableViewCell()
             }
-        } else if indexPath.section == 2 {
+        } else if indexPath.section == ProfileSection.thirdSection.rawValue {
             switch indexPath.row {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: LabelCell.identifier, for: indexPath) as? LabelCell else { return UITableViewCell() }
-                cell.titleLbl.text = SectionTitle.workEdu.rawValue
+                cell.configCell(SectionTitle.workEdu.rawValue)
                 return cell
             case 1:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.identifier, for: indexPath) as? TextFieldCell else { return UITableViewCell() }
+                if currentUser != nil {
+                    cell.configCell(currentUser!.jobTitle)
+                }
                 cell.txtField.placeholder = Placeholder.addJob.rawValue
                 return cell
             case 2:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.identifier, for: indexPath) as? TextFieldCell else { return UITableViewCell() }
+                if currentUser != nil {
+                    cell.configCell(currentUser!.proffesion)
+                }
                 cell.txtField.placeholder = Placeholder.addEdu.rawValue
                 return cell
             default: return UITableViewCell()
             }
-        } else if indexPath.section == 3 {
+        } else if indexPath.section == ProfileSection.forthSection.rawValue {
             switch indexPath.row {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: LabelCell.identifier, for: indexPath) as? LabelCell else { return UITableViewCell() }
-                cell.titleLbl.text = SectionTitle.basicInfo.rawValue
+                cell.configCell(SectionTitle.basicInfo.rawValue)
                 return cell
             case 1...5:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.identifier, for: indexPath) as? TextFieldCell else { return UITableViewCell() }
                 switch indexPath.row {
                 case 1:
+                    if currentUser != nil {
+                        let gender = currentUser!.isMale ? "Male" : "Female"
+                        cell.configCell(gender)
+                    }
                     cell.txtField.placeholder = Placeholder.gender.rawValue
                 case 2:
+                    if currentUser != nil { cell.configCell(currentUser!.city)}
                     cell.txtField.placeholder = Placeholder.city.rawValue
                 case 3:
+                    if currentUser != nil { cell.configCell(currentUser!.country)}
                     cell.txtField.placeholder = Placeholder.country.rawValue
                 case 4:
+                    if currentUser != nil { cell.configCell(String(currentUser!.height))}
                     cell.txtField.placeholder = Placeholder.height.rawValue
                 case 5:
+                    if currentUser != nil { cell.configCell(currentUser!.lookingFor)}
                     cell.txtField.placeholder = Placeholder.lookingFor.rawValue
                 default: break
                 }

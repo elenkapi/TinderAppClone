@@ -21,4 +21,7 @@ class LabelCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configCell(_ userInfo: String) {
+        self.titleLbl.text = userInfo
+    }
 }

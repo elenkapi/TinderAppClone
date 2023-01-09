@@ -168,5 +168,21 @@ final class FirebaseUser: Equatable {
             }
         }
     }
+    
+    //MARK: - Return current user
+    static func currentUserID() -> String {
+//        guard let user = Auth.auth().currentUser else { return "" }
+//        return user.uid
+        return Auth.auth().currentUser?.uid ?? ""
+    }
+    
+    static func currentUser() -> FirebaseUser? {
+        if Auth.auth().currentUser != nil {
+            if let user = UserDefaults.standard.object(forKey: kCURRENTUSER) {
+                return FirebaseUser.init(dictionary: user as! NSDictionary)
+            }
+        }
+        return nil
+    }
 }
 

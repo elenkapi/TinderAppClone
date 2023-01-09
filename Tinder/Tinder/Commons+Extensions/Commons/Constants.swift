@@ -45,18 +45,25 @@ enum Placeholder: String {
     case lookingFor = "Looking for"
 }
 
+enum ProfileSection: Int, CaseIterable {
+    case firstSection = 0
+    case secondSection = 1
+    case thirdSection = 2
+    case forthSection = 3
+}
+
 enum NumberOfRowsInSection: Int {
-    case sec0 = 1
-    case sec1 = 2
-    case sec2 = 3
-    case sec3 = 6
+    case sec1 = 1
+    case sec2 = 2
+    case sec3 = 3
+    case sec4 = 6
     case secDefault = 0
 }
 
 enum HeightForRow: CGFloat {
-    case sec0 = 420
+    case firstSection = 420
     case forTitle$TxtField = 60
-    case sec1_1 = 150
+    case txtView = 150
     case secDefault = 50
 }
 
@@ -65,6 +72,7 @@ enum NotificationName: String {
     case _settings = "Tinder.Notification.SettingsTapped"
     case _camera = "Tinder.Notification.CameraTapped"
     case _edit = "Tinder.Notification.EditTapped"
+    case _save = "Tinder.Notification.SaveTapped"
 }
 
 enum AlertTitle: String {
